@@ -15,6 +15,7 @@ module.exports.verifyToken = async (req, res, next) => {
   }
   try {
     const user = await verifyJwt(token, uuid)
+    req.user = user
     next()
   } catch (error) {
     return res.status(402).json({ error: 'token无效' })
