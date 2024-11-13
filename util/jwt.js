@@ -9,7 +9,7 @@ module.exports.createToken = async (user) => {
 }
 
 module.exports.verifyToken = async (req, res, next) => {
-  const token = req.headers['authorization'].split(' ')[1] || null
+  const token = req.headers['authorization']?.split(' ')[1] || null
   if (!token) {
     return res.status(402).json({ error: 'token为空' })
   }

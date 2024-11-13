@@ -7,6 +7,7 @@ const app = express()
 // 中间件
 app.use(express.json())
 app.use(express.urlencoded())
+app.use(express.static('uploads'))
 app.use(cors())
 app.use(morgan('dev'))
 app.use('/api/v1', router)
